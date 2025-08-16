@@ -187,6 +187,7 @@ public class Model extends Observable {
             setChanged();
         }
         return changed;
+        
     }
 
     /**
