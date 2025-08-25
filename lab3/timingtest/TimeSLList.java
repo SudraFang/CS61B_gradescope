@@ -31,11 +31,13 @@ public class TimeSLList {
         opCounts.addLast(10000);
         opCounts.addLast(10000);
         opCounts.addLast(10000);
+        opCounts.addLast(10000);
         Ns.addLast(1000);
         Ns.addLast(2000);
         Ns.addLast(4000);
         Ns.addLast(8000);
         Ns.addLast(16000);
+        Ns.addLast(64000);
         for (int i = 0; i < Ns.size(); i ++) {
             SLList<Integer> test = new SLList<>();
             Integer num = Ns.get(i);
