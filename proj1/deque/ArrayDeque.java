@@ -33,6 +33,8 @@ public class ArrayDeque<T> implements Deque<T>{
         int end = back;
         System.arraycopy(array, (beg + 1) % array.length, newArray, 0, array.length - beg - 1);
         System.arraycopy(array, 0, newArray, array.length - beg - 1, end);
+        front = array.length - 1;
+        back = size;
         array = newArray;
     }
 
@@ -71,6 +73,9 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
         double factor = (double) size / array.length;
         if (this.size > 16 && factor < 0.25) {
             resize(array.length / 2);
@@ -84,6 +89,9 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         double factor = (double) size / array.length;
         if (this.size > 16 && factor < 0.25) {
             resize(array.length / 2);
@@ -97,7 +105,7 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T get(int index) {
-        if (index >= size) {
+        if (index >= array.length) {
             return null;
         }
         return array[index];
