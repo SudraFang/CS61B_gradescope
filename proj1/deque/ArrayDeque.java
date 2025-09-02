@@ -34,7 +34,7 @@ public class ArrayDeque<T> implements Deque<T>{
         System.arraycopy(array, (beg + 1) % array.length, newArray, 0, array.length - beg - 1);
         System.arraycopy(array, 0, newArray, array.length - beg - 1, end);
         front = array.length - 1;
-        back = size;
+        back = array.length - beg - 1 + end;
         array = newArray;
     }
 
