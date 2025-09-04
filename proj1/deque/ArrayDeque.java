@@ -108,7 +108,7 @@ public class ArrayDeque<T> implements Deque<T>{
         if (index < 0 || index >= size) {
             return null;
         }
-        int realIndex = (index + front) % array.length;
+        int realIndex = (index + front + 1) % array.length;
         return array[realIndex];
     }
 
