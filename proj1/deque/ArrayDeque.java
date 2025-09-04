@@ -22,7 +22,7 @@ public class ArrayDeque<T> implements Deque<T>{
             resize(array.length * 2);
         }
         array[front] = item;
-        front = (front - 1) % array.length;
+        front = (front - 1 + array.length) % array.length;
         size ++;
     }
 
@@ -105,10 +105,10 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T get(int index) {
-        if (index >= array.length) {
-            return null;
+        if (index > front && index < back || back < front && index > front || back < front && index < back) {
+            return array[index];
         }
-        return array[index];
+        return null;
     }
 
     @Override
