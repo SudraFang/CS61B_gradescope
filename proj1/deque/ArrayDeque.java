@@ -105,10 +105,11 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T get(int index) {
-        if (index >= front && index < back || back < front && index > front || back < front && index < back) {
-            return array[index];
+        if (index < 0 || index >= size) {
+            return null;
         }
-        return null;
+        int realIndex = (index + front) % array.length;
+        return array[realIndex];
     }
 
     @Override
